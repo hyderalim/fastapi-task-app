@@ -43,7 +43,9 @@ def get_current_user(credentials = Depends(security)):
     except:
         raise HTTPException(status_code=401, detail="Invalid token")
 
-
+@app.get("/")
+def home():
+    return {"message": "FastAPI app is running 🚀"}
 
 # Signup
 @app.post("/signup")
